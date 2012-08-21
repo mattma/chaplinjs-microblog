@@ -1,0 +1,9 @@
+<h2 name="title">{{title}}</h2>
+<div name="content">{{content}}</div>
+{{#each comments}}
+	<div>
+		<p>{{firstName}} {{lastName}}</p>
+		<p>{{email}}</p>
+		<div>{{comment}}</div>
+	</div>
+{{/each}}
