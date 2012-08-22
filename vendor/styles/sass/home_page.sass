@@ -1,9 +1,106 @@
-.home-page
-	width: 476px
-	height: 130px
-	margin: 5px auto
-	padding: 5px
-	margin-bottom: 0.5em
-	color: #fff
-	border-radius: 5px
-	background-color: #4276b6
+.callout
+	height: 40px
+
+#posts
+	margin-top: 60px
+	margin-bottom: 120px
+	article
+		width: 100%
+		height: auto
+		margin-bottom: 30px
+		float: left
+		background: url('/images/border-dot.gif') 0 100% repeat-x
+		position: relative
+		&:last-child
+			background: transparent
+		.callout
+			position: absolute
+			top: -97px
+			left: 190px
+			a
+				margin-right: 8px
+
+
+
+[name=excerpt], [name=content]
+	color: rgb(102,102,102)
+	font-size: 1.2em
+
+.readmore
+	margin-top: 20px
+	margin-bottom: 30px
+	color: rgb(18, 121, 188)
+	float: right
+	width: 100px
+	font-size: 1.1em
+	span
+		display: block
+		float: right
+	&:hover
+		color: rgb(102,102,102)
+
+// Comments Section
+.post-comment
+	margin-top: 40px
+	&>div
+		position: relative
+		min-height: 60px
+		margin-bottom: 20px
+		padding-bottom: 35px
+		background: url('/images/border-dot.gif') 0 100% repeat-x
+		&:before
+			content: ""
+			width: 48px
+			height: 48px
+			background: url('/images/Avatar-24.png') 0 0 no-repeat
+			position: absolute
+			top: 0
+			left: 0
+		div
+			color: rgb(102,102,102)
+			font-size: 1.2em
+			padding-left: 65px
+	h3
+		margin-top: 40px
+	.name
+		padding-left: 65px
+		font-size: 1.2em
+		line-height: 14px
+		font-weight: 700
+		padding-top: 5px
+		margin-bottom: 10px
+	.email
+		padding-left: 65px
+		font-size: 1.2em
+		line-height: 14px
+		margin-top: 3px
+		margin-bottom: 20px
+		a
+			color: rgb(88, 171, 213)
+			&:hover
+				color: rgb(102,102,102)
+	form
+		margin-bottom: 100px
+		p
+			position: relative
+		label
+			width: 120px
+			display: block
+			position: absolute
+			top: 0
+			left: 0
+		input
+			width: 300px
+			margin-left: 100px
+		textarea
+			width: 300px
+			height: 100px
+			margin-left: 100px
+		#comment_submit
+			position: absolute
+			top: 15px
+			left: 300px
+
+
+
+

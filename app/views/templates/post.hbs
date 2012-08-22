@@ -1,38 +1,42 @@
 <div class="callout">
-	<a href="/">Back to all posts</a>
-	<a id="removePost">Delete this post</a>
+	<a href="/" class="btn">Back to all posts</a>
+	<a id="removePost"  class="btn">Delete this post</a>
 </div>
 <h2 name="title">{{title}}</h2>
 <div name="content">{{content}}</div>
-{{#each comments}}
-	<div>
-		<p>{{firstName}} {{lastName}}</p>
-		<p>{{email}}</p>
-		<div>{{comment}}</div>
-	</div>
-{{/each}}
 
-<h3>Add a new comments:</h3>
+<section class="post-comment">
+	<h3>Comments: </h3>
+	{{#each comments}}
+		<div>
+			<p class="name">{{firstName}} {{lastName}}</p>
+			<p class="email"><a href="mailto:{{email}}">{{email}}</a></p>
+			<div>{{comment}}</div>
+		</div>
+	{{/each}}
 
-<form action="#" method="post" id="comment">
-	<p>
-		<label for="firstName">First Name:</label>
-		<input type="text" name="firstName" />
-	</p>
-	<p>
-		<label for="lastName">Last Name:</label>
-		<input type="text" name="lastName" />
-	</p>
-	<p>
-		<label for="email">Email:</label>
-		<input type="email" name="email" />
-	</p>
+	<h3>Add a new comments:</h3>
 
-	<p>
-		<label for="comment">Comment:</label>
-		<textarea cols="40" rows="8" name="comment"></textarea>
-	</p>
-	<p>
-		<button type="submit" id="comment_submit">Submit</button>
-	</p>
-</form>
+	<form action="#" method="post" id="comment">
+		<p>
+			<label for="firstName">First Name:</label>
+			<input type="text" name="firstName" />
+		</p>
+		<p>
+			<label for="lastName">Last Name:</label>
+			<input type="text" name="lastName" />
+		</p>
+		<p>
+			<label for="email">Email:</label>
+			<input type="email" name="email" />
+		</p>
+
+		<p>
+			<label for="comment">Comment:</label>
+			<textarea cols="40" rows="8" name="comment"></textarea>
+		</p>
+		<p>
+			<button type="submit" id="comment_submit">Submit</button>
+		</p>
+	</form>
+</section>

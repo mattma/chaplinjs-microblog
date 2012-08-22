@@ -1,21 +1,52 @@
-.header
-	width: 476px
-	margin: 0 auto
-	padding: 10px
-	border-bottom-right-radius: 5px
-	border-bottom-left-radius: 5px
-	background-color: #4276b6
+@import 'compass/css3'
 
-.header-link
-	margin-right: 32px
+body
+	background: white url("/images/main-bg-no-line.jpg") repeat-x 0 0
+	height: 100%
+	font-family: calibri, helvetica, arial, sans-serif
+	&>div
+		width: 960px
+		margin: 0 auto
+a
+	display: block
 	text-decoration: none
-	color: #eee
 
-	&:visited
-		color: #eee
+h2
+	font-size: 1.8em
+	margin-bottom: 15px
+	margin-top: 0
+	color: rgb(51,51,51)
 
+h3
+	font-size: 1.5em
+	margin-bottom: 15px
+	margin-top: 0
+	color: rgb(75,75,75)
+
+.btn, button
+	background: -moz-linear-gradient(rgb(75,75,75), rgb(24,24,24)) repeat scroll 0 0 transparent
+	background: -webkit-linear-gradient(rgb(75,75,75), rgb(24,24,24)) repeat scroll 0 0 transparent
+	background: linear-gradient(rgb(75,75,75), rgb(24,24,24)) repeat scroll 0 0 transparent
+	border: 1px solid black
+	+border-radius(3px)
+	+box-shadow(0 1px 0 #262626 inset)
+	color: white
+	cursor: pointer
+	display: inline-block
+	font-family: calibri, arial,helvetica,Verdana,sans-serif
+	font-size: 1.2em
+	line-height: 35px
+	padding-left: 25px
+	padding-right: 25px
+	text-align: center
+	+text-shadow(0 -1px 0 black)
 	&:hover
-		text-decoration: underline
+		background: black
 
-	&:last-child
-		margin-right: 0
+header
+	width: 960px
+	margin: 0 auto 80px
+	img
+		margin-top: 42px
+
+

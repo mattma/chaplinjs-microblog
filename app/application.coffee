@@ -50,8 +50,8 @@ module.exports = class Application extends Chaplin.Application
 		# and views which are needed the whole time, for example header, footer
 		# or navigation views.
 		# e.g. new NavigationController()
-		new SessionController()
-		new HeaderController()
+		# new SessionController()
+		# new HeaderController()
 		new PostsController()
 
 	# Create additional mediator properties
