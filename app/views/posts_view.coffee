@@ -1,12 +1,17 @@
 CollectionView = require 'views/base/collection_view'
 template = require 'views/templates/posts'
+MainView = require 'views/main_view'
 
 module.exports = class PostsView extends CollectionView
 	template: template
 	template = null
 
-	tagName: "article"
+	itemView: MainView
 
-	container: "#main"
+	$list: $("#post")
 
-	autoRender: true
+	render: ->
+		@
+
+	getView: (model) ->
+		super

@@ -1,6 +1,6 @@
 Chaplin = require 'chaplin'
 _ = require "underscore"
-require 'lib/plugins/backbone.validation-0.6.2'
+require 'backbone-validation'
 
 module.exports = class Model extends Chaplin.Model
 	initialize: ->

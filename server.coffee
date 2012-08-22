@@ -28,28 +28,28 @@ app.configure 'development', ->
 app.configure 'production', ->
 	app.use express.errorHandler()
 
-# Setup the CouchDB connection
-conn = new (cradle.Connection)(
-	cache: true
-	raw: false
-	host: "http://127.0.0.1"
-	port: 5984
-	auth:
-		username: db_access.auth.username
-		password: db_access.auth.password
-)
+# # Setup the CouchDB connection
+# conn = new (cradle.Connection)(
+# 	cache: true
+# 	raw: false
+# 	host: "http://127.0.0.1"
+# 	port: 5984
+# 	auth:
+# 		username: db_access.auth.username
+# 		password: db_access.auth.password
+# )
 
-db = conn.database db_access.auth.name
+# db = conn.database db_access.auth.name
 
-db.exists( (err, exists) ->
-	if ( err )
-		throw new Error "an error in DB"
-	else if ( exists )
-		console.log "database has exists"
-	else
-		db.create()
-		console.log "create a new database"
-)
+# db.exists( (err, exists) ->
+# 	if ( err )
+# 		throw new Error "an error in DB"
+# 	else if ( exists )
+# 		console.log "database has exists"
+# 	else
+# 		db.create()
+# 		console.log "create a new database"
+# )
 
 # Routes
 app.get '/', routes.home  #routes.home: /routes/routes.js => exports.home()

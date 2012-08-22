@@ -1,7 +1,7 @@
 View = require 'views/base/view'
-template = require 'views/templates/post'
+template = require 'views/templates/posts'
 
-module.exports = class PostView extends View
+module.exports = class MainView extends View
 	template: template
 	container: "#posts"
 	tagName: "article"
