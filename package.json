@@ -32,6 +32,8 @@
 		"uglify-js-brunch": ">= 1.0 < 1.5",
 		"clean-css-brunch": ">= 1.0 < 1.5",
 
+		"underscore": "*",
+
 		"express": ">2.5.8",
 		"jade": "*",
 		"cradle": "*"

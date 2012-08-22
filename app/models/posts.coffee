@@ -1,16 +1,41 @@
 Collection = require 'models/base/collection'
 Post = require 'models/post'
+_ = require 'underscore'
 
 module.exports = class Posts extends Collection
 	model: Post
-	url: '/'
+	url: '/posts'
 
 	initialize: ->
-		@add new Post {title: "first post 1", id: 1}
-		@add new Post {title: "second post 2", id: 2}
-		@add new Post {title: "third post 3", id: 3}
-		#console.log @toJSON()
 
+		super
+		@initSyncMachine()
+		@fetch
+			success: @fetchSuccess
+			error: @fetchError
+
+	parse: (response, xhr) ->
+		_.map response, (obj) -> obj.value
+
+	fetchSuccess: (collection, response) =>
+
+		# Switch to syncing state
+		@beginSync()
+		collection
+
+
+	fetchError: (collection, response) ->
+		throw new Error "Collection Fetch Failed!"
+
+	getAllPosts: (response) ->
+		#console.debug 'Likes#processLikes', response, response.data
+		return if @disposed
+
+		# Update the collection
+		@reset(if response and response.data then response.data else [])
+
+		# Switch to synced state
+		@finishSync()
 
 
 

@@ -11,13 +11,10 @@ module.exports = class PostsController extends Controller
 		@collection = new Posts()
 		@posts = new PostsView collection: @collection
 
-
 	details: (params)->
 		model_id = params.id
-		@model = new Post {id: model_id}
-		#@model.fetch
-			# success: (model, response)->
-			# 	response
-			# 	console.log model
-		#console.log @model
-		#@post = new PostView
+		post = new Post {_id: model_id}
+
+		post.fetch
+			success: (model, response) ->
+				@post = new PostView {model: model}

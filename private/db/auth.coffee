@@ -1,4 +1,4 @@
 exports.auth =
-	name: "database_name"
-	username: "username"
+	name: "blog"
+	username: "user"
 	password: "password"
