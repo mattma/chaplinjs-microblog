@@ -56,10 +56,15 @@ app.get '/', routes.home  #routes.home: /routes/routes.js => exports.home()
 
 app.get '/posts/new', routes.newPost  #routes.home: /routes/routes.js => exports.home()
 
+
 # Fetch the blog posts
 app.get "/posts", (req, res) ->
 	db.get "_design/posts/_view/by_title", (err,doc) ->
 		res.json doc
+
+# Need to be after "/posts", because it is the fallback when 'posts' route is not matched
+# when refresh the browser, it will maintain its state
+app.get '/:id', routes.home
 
 # Fetch the single blog post
 app.get "/post/:id", (req, res) ->
@@ -81,11 +86,11 @@ app.post '/posts/new', (req, res ) ->
 app.delete '/post/:id', (req, res) ->
 	db.get req.params.id, (err, doc) ->
 		db.remove req.params.id, doc._rev, (err, response) ->
-			res.redirect('/') unless err
+			res.send response
 
-app.put '/post/:id', (req, res) ->
+app.post '/post/:id', (req, res) ->
 	console.log req.body
-	# db.merge req.params.id, req.body, (err, response) ->
+	# db.merge req.params.id, doc._rev,  req.body, (err, response) ->
 	# 	console.log err if err
 	# 	res.send response
 
