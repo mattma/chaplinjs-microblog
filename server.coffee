@@ -54,15 +54,40 @@ db.exists( (err, exists) ->
 # Routes
 app.get '/', routes.home  #routes.home: /routes/routes.js => exports.home()
 
-app.get '/new', routes.newPost  #routes.home: /routes/routes.js => exports.home()
+app.get '/posts/new', routes.newPost  #routes.home: /routes/routes.js => exports.home()
 
+# Fetch the blog posts
 app.get "/posts", (req, res) ->
 	db.get "_design/posts/_view/by_title", (err,doc) ->
 		res.json doc
 
+# Fetch the single blog post
 app.get "/post/:id", (req, res) ->
 	db.get req.params.id, (err, doc) ->
 		res.json doc
+
+# Create a new blog post
+app.post '/posts/new', (req, res ) ->
+	options =
+		"title": req.body.title,
+		"excerpt": req.body.excerpt,
+		"content": req.body.content
+
+	db.save options, (err, response)->
+		db.get response.id, (err, doc) ->
+			res.redirect('/') unless err
+
+# Delete the existing post
+app.delete '/post/:id', (req, res) ->
+	db.get req.params.id, (err, doc) ->
+		db.remove req.params.id, doc._rev, (err, response) ->
+			res.redirect('/') unless err
+
+app.put '/post/:id', (req, res) ->
+	console.log req.body
+	# db.merge req.params.id, req.body, (err, response) ->
+	# 	console.log err if err
+	# 	res.send response
 
 app.startServer =  ->
 	app.listen PORT, ->

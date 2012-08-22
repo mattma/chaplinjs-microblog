@@ -1,0 +1,16 @@
+extends ../layout
+
+block content
+	h2 Create a new post
+	form(action="/posts/new", method="post")
+		p
+			label Post Title
+			input(type='text', placeholder="title", name="title")
+		p
+			label Post Excerpt
+			input(type='text', placeholder="excerpt", name="excerpt")
+		p
+			label Post Content
+			input(type='text', placeholder="content", name="content")
+		p
+			button(type="submit") Post

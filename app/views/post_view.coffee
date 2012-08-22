@@ -10,3 +10,9 @@ module.exports = class PostView extends View
 	container: "#posts"
 	tagName: "article"
 	autoRender: true
+
+	events:
+		"click #removePost": "remove_post"
+
+	remove_post: (event) ->
+		@model.destroy()
