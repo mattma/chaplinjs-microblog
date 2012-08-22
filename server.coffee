@@ -88,11 +88,19 @@ app.delete '/post/:id', (req, res) ->
 		db.remove req.params.id, doc._rev, (err, response) ->
 			res.send response
 
-app.post '/post/:id', (req, res) ->
-	console.log req.body
-	# db.merge req.params.id, doc._rev,  req.body, (err, response) ->
-	# 	console.log err if err
-	# 	res.send response
+# Update the Comments in particular post
+app.put '/post/:id', (req, res) ->
+	comment = req.body.comments
+	db.get req.params.id, (err, doc) ->
+		unless doc.comments
+			db.merge req.params.id, { "comments": [comment] }, (err, response) ->
+				console.log err if err
+				res.send response
+		else
+			doc.comments.push(comment)
+			db.merge req.params.id, { "comments": doc.comments }, (err, response) ->
+				console.log err if err
+				res.send response
 
 app.startServer =  ->
 	app.listen PORT, ->
