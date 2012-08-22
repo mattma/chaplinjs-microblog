@@ -8,13 +8,15 @@ module.exports = class PostsController extends Controller
 	title: "Matt Ma Mirco blog"
 
 	index: (params)->
+		@clearView() #always empty the main container when the page is loaded
 		@collection = new Posts()
 		@posts = new PostsView collection: @collection
 
 	details: (params)->
 		model_id = params.id
-		post = new Post {_id: model_id}
+		post = new Post _id: model_id
 
 		post.fetch
-			success: (model, response) ->
-				@post = new PostView {model: model}
+			success: (model, response) -> @post = new PostView model: model
+
+	clearView: -> $('#posts').empty()

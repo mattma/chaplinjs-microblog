@@ -54,6 +54,8 @@ db.exists( (err, exists) ->
 # Routes
 app.get '/', routes.home  #routes.home: /routes/routes.js => exports.home()
 
+app.get '/new', routes.newPost  #routes.home: /routes/routes.js => exports.home()
+
 app.get "/posts", (req, res) ->
 	db.get "_design/posts/_view/by_title", (err,doc) ->
 		res.json doc

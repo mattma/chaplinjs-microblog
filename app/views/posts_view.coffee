@@ -3,15 +3,13 @@ template = require 'views/templates/posts'
 MainView = require 'views/main_view'
 
 module.exports = class PostsView extends CollectionView
+	'use strict'
+
 	template: template
 	template = null
 
-	itemView: MainView
-
 	$list: $("#post")
 
-	render: ->
-		@
+	render: -> @
 
-	getView: (model) ->
-		super
+	getView: (model) -> new MainView model: model
