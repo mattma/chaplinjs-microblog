@@ -1,8 +1,6 @@
 Chaplin = require 'chaplin'
 mediator = require 'mediator'
 routes = require 'routes'
-SessionController = require 'controllers/session_controller'
-HeaderController = require 'controllers/header_controller'
 PostsController = require 'controllers/posts_controller'
 Layout = require 'views/layout'
 
@@ -49,16 +47,12 @@ module.exports = class Application extends Chaplin.Application
 		# controllers which do not to respond to routes. They may govern models
 		# and views which are needed the whole time, for example header, footer
 		# or navigation views.
-		# e.g. new NavigationController()
-		# new SessionController()
-		# new HeaderController()
+
 		new PostsController()
 
 	# Create additional mediator properties
 	# -------------------------------------
 	initMediator: ->
-		# Create a user property
-		Chaplin.mediator.user = null
 		# Add additional application-specific properties and methods
 		# Seal the mediator
 		Chaplin.mediator.seal()
