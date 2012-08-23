@@ -1,16 +1,24 @@
 extends ../layout
 
 block content
-	h2 Create a new post
-	form(action="/posts/new", method="post")
-		p
-			label Post Title
-			input(type='text', placeholder="title", name="title")
-		p
-			label Post Excerpt
-			input(type='text', placeholder="excerpt", name="excerpt")
-		p
-			label Post Content
-			input(type='text', placeholder="content", name="content")
-		p
-			button(type="submit") Post
+	header
+		img(src='/images/viewpost-app-logo.png', width='125px', height='24px')
+	#callout
+		a(href="/posts/new", class="btn") Create new post
+	#posts
+		article
+			.callout
+				a(href="/", class="btn") Back to all posts
+			h2 Create a new post
+			form(action="/posts/new", method="post", class="create-post")
+				p
+					label Post Title
+					input(type='text', placeholder="title", name="title")
+				p
+					label Post Excerpt
+					textarea(placeholder="excerpt", name="excerpt")
+				p.mainContent
+					label Post Content
+					textarea(placeholder="content", name="content")
+				p
+					button(type="submit") Post Now !
