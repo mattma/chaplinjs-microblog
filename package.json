@@ -3,15 +3,15 @@
 		"name": "Matt Ma",
 		"email": "matt@mattmadesign.com"
 	},
-	"name": "application_name",
-	"description": "Package description",
-	"version": "0.0.1",
+	"name": "Mini Blog",
+	"description": "Micro Blog built on Backbone.js and Chaplin.js",
+	"version": "0.1",
 
 	"homepage": "",
 	"private": true,
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/mattma/Brunch-with-Chaplin-and-Node.git"
+		"url": "https://github.com/mattma/chaplinjs-microblog.git"
 	},
 	"engines": {
 		"node": ">= 0.8"
